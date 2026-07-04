@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Intake</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="form-panel" aria-labelledby="form-title">
+        <p class="eyebrow">Research Intake</p>
+        <h1 id="form-title">Bot Activity Tracking Form</h1>
+
+        <form class="intake-form" action="#" method="post" autocomplete="off">
+          <div class="field-grid two-column">
+            <label class="field">
+              <span>First name</span>
+              <input type="text" name="first_name" placeholder="Jane" />
+            </label>
+
+            <label class="field">
+              <span>Last name</span>
+              <input type="text" name="last_name" placeholder="Doe" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Street address</span>
+            <input type="text" name="street_address" placeholder="123 Example Ave" />
+          </label>
+
+          <div class="field-grid three-column">
+            <label class="field">
+              <span>City</span>
+              <input type="text" name="city" placeholder="Springfield" />
+            </label>
+
+            <label class="field">
+              <span>State</span>
+              <input type="text" name="state" placeholder="CA" maxlength="2" />
+            </label>
+
+            <label class="field">
+              <span>ZIP</span>
+              <input type="text" name="zip" placeholder="90210" inputmode="numeric" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Card number</span>
+            <input
+              type="text"
+              name="card_number"
+              placeholder="4111 1111 1111 1111"
+              inputmode="numeric"
+            />
+          </label>
+
+          <div class="field-grid two-column">
+            <label class="field">
+              <span>Expiration</span>
+              <input type="text" name="expiration" placeholder="MM / YY" inputmode="numeric" />
+            </label>
+
+            <label class="field">
+              <span>Security code</span>
+              <input type="text" name="security_code" placeholder="123" inputmode="numeric" />
+            </label>
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
