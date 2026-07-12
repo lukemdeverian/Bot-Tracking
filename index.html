@@ -3,16 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Research Intake</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>The Chronos Crate</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <main class="page-shell">
-      <section class="form-panel" aria-labelledby="form-title">
-        <p class="eyebrow">Research Intake</p>
-        <h1 id="form-title">Bot Activity Tracking Form</h1>
+    <main class="storefront">
+      <section class="product-column" aria-labelledby="product-title">
+        <p class="eyebrow">Now accepting pre-orders from yesterday</p>
+        <h1 id="product-title">The Chronos Crate</h1>
+        <p class="lead">
+          Skip the wait, outrun your calendar, and arrive fashionably early to
+          events that technically already happened.
+        </p>
 
-        <form class="intake-form" action="#" method="post" autocomplete="off">
+        <div class="product-meta" aria-label="Product highlights">
+          <span>12 era presets</span>
+          <span>Paradox warranty</span>
+          <span>Ships last Tuesday</span>
+        </div>
+
+        <div class="machine-visual" aria-label="The Chronos Crate product preview">
+          <div class="machine-shell">
+            <div class="machine-top"></div>
+            <div class="machine-screen">
+              <span>1888</span>
+              <strong>to</strong>
+              <span>2088</span>
+            </div>
+            <div class="machine-controls">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="machine-door">
+              <div></div>
+            </div>
+          </div>
+          <div class="price-tag">
+            <span>Launch price</span>
+            <strong>$8,888.08</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="checkout-panel" aria-labelledby="checkout-title">
+        <p class="eyebrow">Reserve your departure</p>
+        <h2 id="checkout-title">Checkout</h2>
+
+        <form class="checkout-form" action="/checkout" method="post" autocomplete="off">
           <div class="field-grid two-column">
             <label class="field">
               <span>First name</span>
@@ -59,6 +97,30 @@
             </label>
           </div>
 
+          <div class="field-grid two-column">
+            <label class="field">
+              <span>Website</span>
+              <input type="url" name="website" placeholder="https://example.com" />
+            </label>
+
+            <label class="field">
+              <span>Destination year</span>
+              <input type="text" name="destination_year" placeholder="1985" inputmode="numeric" />
+            </label>
+          </div>
+
+          <div class="field-grid two-column">
+            <label class="field">
+              <span>Username</span>
+              <input type="text" name="username" placeholder="chronos_jane" />
+            </label>
+
+            <label class="field">
+              <span>Password</span>
+              <input type="password" name="account_password" placeholder="********" />
+            </label>
+          </div>
+
           <label class="field">
             <span>Card number</span>
             <input
@@ -69,7 +131,7 @@
             />
           </label>
 
-          <div class="field-grid two-column">
+          <div class="field-grid three-column">
             <label class="field">
               <span>Expiration</span>
               <input type="text" name="expiration" placeholder="MM / YY" inputmode="numeric" />
@@ -79,9 +141,21 @@
               <span>Security code</span>
               <input type="text" name="security_code" placeholder="123" inputmode="numeric" />
             </label>
+
+            <label class="field">
+              <span>Quantity</span>
+              <input type="text" name="quantity" placeholder="1" inputmode="numeric" />
+            </label>
           </div>
 
-          <button type="submit">Submit</button>
+          <div class="bot-field" aria-hidden="true">
+            <label>
+              Company
+              <input type="text" name="company" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+
+          <button type="submit">Reserve Now</button>
         </form>
       </section>
     </main>
