@@ -4,6 +4,8 @@ This project is a web form prototype for researching bot activity on websites. T
 
 The app uses a static HTML/CSS frontend served by a Node.js backend. Form submissions are stored in a local SQLite database using Node's built-in SQLite support. No frontend framework is used.
 
+[link to site](https://lukemdeverian.github.io/Bot-Tracking/)
+
 ## Project Team
 
 This project is developed by Luke Deverian and mentored by Professor Thomas Powell.
