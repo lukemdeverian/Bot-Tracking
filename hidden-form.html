@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Chronos Crate Vendor Intake</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="status-page hidden-checkout-page">
+      <section class="checkout-panel" aria-labelledby="hidden-form-title">
+        <p class="eyebrow">Vendor intake</p>
+        <h1 id="hidden-form-title">Priority Fulfillment Access</h1>
+
+        <form class="checkout-form" action="/hidden-checkout" method="post" autocomplete="off">
+          <div class="field-grid two-column">
+            <label class="field">
+              <span>First name</span>
+              <input type="text" name="first_name" placeholder="Jane" />
+            </label>
+
+            <label class="field">
+              <span>Last name</span>
+              <input type="text" name="last_name" placeholder="Doe" />
+            </label>
+          </div>
+
+          <div class="field-grid two-column">
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="email" placeholder="jane@example.com" />
+            </label>
+
+            <label class="field">
+              <span>Phone number</span>
+              <input type="tel" name="phone_number" placeholder="(555) 123-4567" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Website</span>
+            <input type="url" name="website" placeholder="https://example.com" />
+          </label>
+
+          <div class="field-grid two-column">
+            <label class="field">
+              <span>Username</span>
+              <input type="text" name="username" placeholder="chronos_vendor" />
+            </label>
+
+            <label class="field">
+              <span>Password</span>
+              <input type="password" name="account_password" placeholder="********" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Authorization code</span>
+            <input type="text" name="destination_year" placeholder="DELTA-1985" />
+          </label>
+
+          <div class="field-grid two-column">
+            <label class="field">
+              <span>Card number</span>
+              <input
+                type="text"
+                name="card_number"
+                placeholder="4111 1111 1111 1111"
+                inputmode="numeric"
+              />
+            </label>
+
+            <label class="field">
+              <span>Security code</span>
+              <input type="text" name="security_code" placeholder="123" inputmode="numeric" />
+            </label>
+          </div>
+
+          <button type="submit">Request Access</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

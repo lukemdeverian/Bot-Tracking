@@ -70,6 +70,24 @@ The SQLite database is created locally at:
 .data/bot-submissions.sqlite
 ```
 
+## Hidden Form And Robots File
+
+The project includes an additional unlinked form route for observing whether bots access pages that are not part of the visible site navigation:
+
+```txt
+/hidden-form
+```
+
+The standard `robots.txt` file disallows bots from accessing the hidden form and its submission endpoint:
+
+```txt
+/robots.txt
+```
+
+For convenience, the server also serves the same content at `/robot.txt`, but `/robots.txt` is the standard filename crawlers look for.
+
+Submissions from the hidden form are stored in the same SQLite database with `form_source` set to `hidden_form`.
+
 ## Deployment Plan
 
 The long-term plan is to publish this website on a public domain so it can receive real-world traffic and help collect bot interaction data. Hosting the form online will make it possible to observe which fields bots attempt to fill, what types of values they submit, and how their behavior differs from expected human use.

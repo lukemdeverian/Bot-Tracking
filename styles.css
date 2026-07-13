@@ -332,6 +332,15 @@ button:focus-visible {
   font-weight: 800;
 }
 
+.hidden-checkout-page .checkout-panel {
+  width: min(100%, 640px);
+}
+
+.hidden-checkout-page h1 {
+  font-size: 2.4rem;
+  line-height: 1.05;
+}
+
 @media (max-width: 980px) {
   .storefront {
     grid-template-columns: 1fr;

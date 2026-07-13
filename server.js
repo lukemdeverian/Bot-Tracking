@@ -17,6 +17,7 @@ const db = new DatabaseSync(DB_PATH);
 db.exec(`
   CREATE TABLE IF NOT EXISTS submissions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    form_source TEXT NOT NULL DEFAULT 'main_checkout',
     created_at TEXT NOT NULL,
     ip_address TEXT,
     user_agent TEXT,
@@ -51,8 +52,16 @@ db.exec(`
   ON submissions (created_at);
 `);
 
+const submissionColumns = db.prepare("PRAGMA table_info(submissions)").all();
+const hasFormSourceColumn = submissionColumns.some((column) => column.name === "form_source");
+
+if (!hasFormSourceColumn) {
+  db.exec("ALTER TABLE submissions ADD COLUMN form_source TEXT NOT NULL DEFAULT 'main_checkout'");
+}
+
 const insertSubmission = db.prepare(`
   INSERT INTO submissions (
+    form_source,
     created_at,
     ip_address,
     user_agent,
@@ -82,7 +91,7 @@ const insertSubmission = db.prepare(`
     honeypot_company,
     field_names
   ) VALUES (
-    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
   )
 `);
 
@@ -151,7 +160,7 @@ function getClientIp(req) {
   return req.socket.remoteAddress || "";
 }
 
-function buildSubmission(req, body) {
+function buildSubmission(req, body, formSource) {
   const params = new URLSearchParams(body);
   const field = (name, maxLength) => cleanText(params.get(name), maxLength);
   const password = field("account_password", 200);
@@ -161,6 +170,7 @@ function buildSubmission(req, body) {
   const fieldNames = Array.from(new Set(params.keys())).sort().join(",");
 
   return [
+    formSource,
     new Date().toISOString(),
     cleanText(getClientIp(req), 120),
     cleanText(req.headers["user-agent"], 500),
@@ -214,7 +224,7 @@ function renderThanksPage() {
 </html>`;
 }
 
-async function handleCheckout(req, res) {
+async function handleCheckout(req, res, formSource = "main_checkout") {
   const contentType = req.headers["content-type"] || "";
 
   if (!contentType.includes("application/x-www-form-urlencoded")) {
@@ -224,7 +234,7 @@ async function handleCheckout(req, res) {
 
   try {
     const body = await collectBody(req);
-    insertSubmission.run(...buildSubmission(req, body));
+    insertSubmission.run(...buildSubmission(req, body, formSource));
     send(res, 200, { "Content-Type": "text/html; charset=utf-8" }, renderThanksPage());
   } catch (error) {
     const status = error.message.includes("large") ? 413 : 500;
@@ -243,6 +253,16 @@ async function handleRequest(req, res) {
     return;
   }
 
+  if (req.method === "GET" && (req.url === "/hidden-form" || req.url === "/hidden-form.html")) {
+    serveFile(res, "hidden-form.html", "text/html; charset=utf-8");
+    return;
+  }
+
+  if (req.method === "GET" && (req.url === "/robots.txt" || req.url === "/robot.txt")) {
+    serveFile(res, "robots.txt", "text/plain; charset=utf-8");
+    return;
+  }
+
   if (req.method === "GET" && req.url === "/thanks") {
     send(res, 200, { "Content-Type": "text/html; charset=utf-8" }, renderThanksPage());
     return;
@@ -255,6 +275,11 @@ async function handleRequest(req, res) {
 
   if (req.method === "POST" && req.url === "/checkout") {
     await handleCheckout(req, res);
+    return;
+  }
+
+  if (req.method === "POST" && req.url === "/hidden-checkout") {
+    await handleCheckout(req, res, "hidden_form");
     return;
   }
 
