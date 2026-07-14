@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /hidden-form
+Disallow: /hidden-form.html
+Disallow: /hidden-checkout
