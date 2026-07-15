@@ -263,6 +263,11 @@ async function handleRequest(req, res) {
     return;
   }
 
+  if (req.method === "GET" && req.url === "/llms.txt") {
+    serveFile(res, "llms.txt", "text/plain; charset=utf-8");
+    return;
+  }
+
   if (req.method === "GET" && req.url === "/thanks") {
     send(res, 200, { "Content-Type": "text/html; charset=utf-8" }, renderThanksPage());
     return;
