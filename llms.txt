@@ -1,0 +1,25 @@
+# The Chronos Crate
+
+> The Chronos Crate is a premium temporal transport product site for customers reserving a personal-scale time relocation unit with guided destination controls, cabin stabilization, fulfillment support, and a paradox warranty.
+
+The site presents product information, benefits, specifications, company details, shipping and fulfillment information, and return policy details for The Chronos Crate. The primary user action is reserving a unit through the checkout form on the homepage.
+
+## Public Pages And Sections
+
+- [Homepage](/): Product overview and checkout form for reserving The Chronos Crate.
+- [Product Details](/#product-details): Detailed description of the product, core benefits, and intended use cases.
+- [Specifications](/#specifications): Destination range, capacity, controls, and included materials.
+- [About Us](/#about-us): Company background and product support information.
+- [Return Policy](/#return-policy): Return eligibility, inspection process, and refund details.
+
+## Site Files
+
+- [robots.txt](/robots.txt): Crawler access instructions for the site.
+
+## Product Summary
+
+The Chronos Crate is positioned as a serious product offering for customers who need controlled temporal relocation, appointment recovery, historical procurement, research travel, and schedule correction. The product includes twelve era presets, manual destination year entry, a reinforced cabin, analog launch controls, and guided fulfillment.
+
+## Checkout Context
+
+The homepage checkout form collects reservation and fulfillment information for The Chronos Crate. Form fields include contact details, shipping details, destination year, account-style fields, quantity, and payment-style inputs.
