@@ -1,0 +1,29 @@
+RewriteEngine On
+
+# POST /checkout -> checkout.php  (main visible form)
+RewriteRule ^checkout$ checkout.php [L]
+
+# POST /hidden-checkout -> hidden-checkout.php  (honeypot form)
+RewriteRule ^hidden-checkout$ hidden-checkout.php [L]
+
+# GET /hidden-form -> hidden-form.html  (unlinked honeypot page)
+RewriteRule ^hidden-form$ hidden-form.html [L]
+
+# GET /health -> simple JSON, mirrors server.js's health check
+RewriteRule ^health$ health.php [L]
+
+# GET /thanks -> render the same confirmation page directly
+RewriteRule ^thanks$ thanks.php [L]
+
+# Never allow directory listing of the SQLite data folder
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+# Block direct requests to the database file and any other .sqlite files
+<FilesMatch "\.sqlite$">
+    Require all denied
+</FilesMatch>
+
+# Block direct requests to the .data directory entirely
+RewriteRule ^\.data/ - [F,L]

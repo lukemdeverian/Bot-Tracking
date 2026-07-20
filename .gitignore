@@ -1,4 +1,3 @@
-node_modules/
 .data/
-.server*.log
-npm-debug.log*
+router.php
+check.php
