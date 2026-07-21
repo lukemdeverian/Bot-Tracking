@@ -349,11 +349,11 @@ button:focus-visible {
   font-weight: 800;
 }
 
-.hidden-checkout-page .checkout-panel {
+.priority-checkout-page .checkout-panel {
   width: min(100%, 640px);
 }
 
-.hidden-checkout-page h1 {
+.priority-checkout-page h1 {
   font-size: 2.4rem;
   line-height: 1.05;
 }

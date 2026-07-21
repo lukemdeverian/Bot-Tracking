@@ -9,4 +9,4 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-handle_checkout('hidden_form');
+handle_checkout('priority_form');

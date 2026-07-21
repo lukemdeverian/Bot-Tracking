@@ -3,11 +3,11 @@ RewriteEngine On
 # POST /checkout -> checkout.php  (main visible form)
 RewriteRule ^checkout$ checkout.php [L]
 
-# POST /hidden-checkout -> hidden-checkout.php  (honeypot form)
-RewriteRule ^hidden-checkout$ hidden-checkout.php [L]
+# POST /priority-checkout -> priority-checkout.php  (priority form)
+RewriteRule ^priority-checkout$ priority-checkout.php [L]
 
-# GET /hidden-form -> hidden-form.html  (unlinked honeypot page)
-RewriteRule ^hidden-form$ hidden-form.html [L]
+# GET /priority-form -> priority-form.html  (unlinked priority page)
+RewriteRule ^priority-form$ priority-form.html [L]
 
 # GET /health -> simple JSON, mirrors server.js's health check
 RewriteRule ^health$ health.php [L]

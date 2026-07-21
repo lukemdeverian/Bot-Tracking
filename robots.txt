@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /hidden-form
-Disallow: /hidden-form.html
-Disallow: /hidden-checkout
+Disallow: /priority-form
+Disallow: /priority-form.html
+Disallow: /priority-checkout

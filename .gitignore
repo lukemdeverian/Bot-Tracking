@@ -1,3 +1,4 @@
 .data/
 router.php
 check.php
+.server*.log

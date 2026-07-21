@@ -70,15 +70,15 @@ The SQLite database is created locally at:
 .data/bot-submissions.sqlite
 ```
 
-## Hidden Form And Robots File
+## Priority Form And Robots File
 
-The project includes an additional unlinked form route for observing whether bots access pages that are not part of the visible site navigation:
+The project includes an additional unlinked priority form route for observing whether bots access pages that are not part of the visible site navigation:
 
 ```txt
-/hidden-form
+/priority-form
 ```
 
-The standard `robots.txt` file disallows bots from accessing the hidden form and its submission endpoint:
+The standard `robots.txt` file disallows bots from accessing the priority form and its submission endpoint:
 
 ```txt
 /robots.txt
@@ -86,7 +86,7 @@ The standard `robots.txt` file disallows bots from accessing the hidden form and
 
 For convenience, the server also serves the same content at `/robot.txt`, but `/robots.txt` is the standard filename crawlers look for.
 
-Submissions from the hidden form are stored in the same SQLite database with `form_source` set to `hidden_form`.
+Submissions from the priority form are stored in the same SQLite database with `form_source` set to `priority_form`.
 
 ## Deployment Plan
 
