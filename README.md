@@ -40,30 +40,6 @@ The prototype currently includes:
 - Quantity
 - Hidden honeypot company field
 
-## Running Locally
-
-No external npm packages are required.
-
-Start the Node.js server:
-
-```sh
-npm start
-```
-
-If PowerShell blocks `npm`, use:
-
-```sh
-npm.cmd start
-```
-
-Then open:
-
-```txt
-http://127.0.0.1:3000
-```
-
-The checkout form must be opened through the Node server URL above. Opening `index.html` directly or using a static preview server can cause an HTTP 405 error because those options do not run the `/checkout` backend route.
-
 The SQLite database is created locally at:
 
 ```txt
@@ -101,13 +77,5 @@ Any public deployment should be configured carefully so the project only collect
 This project is for research and prototyping only. Do not enter, collect, store, or transmit real sensitive information such as real credit card numbers, passwords, addresses, or personal contact details.
 
 The backend intentionally avoids storing raw passwords, raw security codes, or full card numbers. Instead, it stores safer metadata such as whether those fields were filled, their input length, and the last four digits of a submitted card number. Any URL collection or credential-style experiment should treat submitted data as unsafe and potentially sensitive. Uploaded files and submitted URLs should never be executed, opened automatically, or served back to users.
-
-## Future Development Ideas
-
-- Expand the front end beyond the current black-and-white prototype by adding a stronger visual theme. One possible direction is a Pokemon-inspired "Pokebots" theme where the research interface frames bot tracking as trying to "catch" different bot types.
-- Add a file upload field for observing whether bots attempt to submit files.
-- Add an admin-only analysis view for reviewing submissions.
-- Add request timing and interaction metadata.
-- Add export tools for CSV or JSON research analysis.
 - Add `robots.txt` and `llm.txt` files later in the project.
 - Create documentation for ethical research setup, consent boundaries, and safe handling of collected data.
