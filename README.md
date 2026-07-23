@@ -77,5 +77,3 @@ Any public deployment should be configured carefully so the project only collect
 This project is for research and prototyping only. Do not enter, collect, store, or transmit real sensitive information such as real credit card numbers, passwords, addresses, or personal contact details.
 
 The backend intentionally avoids storing raw passwords, raw security codes, or full card numbers. Instead, it stores safer metadata such as whether those fields were filled, their input length, and the last four digits of a submitted card number. Any URL collection or credential-style experiment should treat submitted data as unsafe and potentially sensitive. Uploaded files and submitted URLs should never be executed, opened automatically, or served back to users.
-- Add `robots.txt` and `llm.txt` files later in the project.
-- Create documentation for ethical research setup, consent boundaries, and safe handling of collected data.
